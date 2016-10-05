@@ -17,3 +17,6 @@ _用于自适应不同短信供应商的短信发送Api_
   _当短信通道不可用时，自动从一个短信供应商切到另一个_
 
 # Contact Us _联系我们_
+Email: <support@neuzilla.com>  
+QQ User Group: 116053476   
+Linkedin User Group: <https://www.linkedin.com/groups/6655065>   
