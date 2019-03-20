@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\VendorConfig.cs" />
+    <Compile Include="Configuration\VendorElementCollection.cs" />
+    <Compile Include="Configuration\VendorElement.cs" />
     <Compile Include="Core\FormParameterAttribute.cs" />
     <Compile Include="Core\IApi.cs" />
     <Compile Include="Core\IApiResponse.cs" />
@@ -61,6 +64,7 @@
     <Compile Include="Core\ISMSVendorContext.cs" />
     <Compile Include="Core\SMSApiWithXmlResponseBase.cs" />
     <Compile Include="Core\SMSApiException.cs" />
+    <Compile Include="Configuration\VendorsConfigSection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\MD5Generator.cs" />
     <Compile Include="Vendors\CCP\CCPRestSDK.cs" />

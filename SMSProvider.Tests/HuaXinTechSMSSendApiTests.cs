@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Neuzilla.SMSProvider.Configuration;
 
 namespace SMSProvider.Tests
 {
@@ -20,11 +21,20 @@ namespace SMSProvider.Tests
         public void Setup()
         {
             context = new HuaXinTechSMSContext();
-            context.Host = ConfigurationManager.AppSettings["HuaXinTech_Host"];
-            context.AccountId = ConfigurationManager.AppSettings["HuaXinTech_Username"];
-            context.PasswordMD5 = ConfigurationManager.AppSettings["HuaXinTech_PasswordMD5"];
-            context.Signature = ConfigurationManager.AppSettings["HuaXinTech_Signature"]; ;
+
+            var config = VendorConfig.Instances("HuaXinTech");
+            context.Host = config.Host;
+            context.AccountId = config.Username; 
+            context.PasswordMD5 = config.Password;
+            context.Signature = config.Signature;
             context.Userid = "";
+
+
+            //context.Host = ConfigurationManager.AppSettings["HuaXinTech_Host"];
+            //context.AccountId = ConfigurationManager.AppSettings["HuaXinTech_Username"];
+            //context.PasswordMD5 = ConfigurationManager.AppSettings["HuaXinTech_PasswordMD5"];
+            //context.Signature = ConfigurationManager.AppSettings["HuaXinTech_Signature"]; ;
+            //context.Userid = "";
 
             api = new HuaXinTechSMSService(context);
             //string accesstoken = context.AccessToken;
