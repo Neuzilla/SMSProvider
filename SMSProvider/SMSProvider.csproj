@@ -81,13 +81,14 @@
     <Compile Include="Vendors\HuaXinTech\HuaXinTechSendSMSApi.cs" />
     <Compile Include="Vendors\HuaXinTech\IHuaXinTechSendSMSApi.cs" />
     <Compile Include="Core\ISMSService.cs" />
+    <Compile Include="Vendors\YunPian\IYunPianSendSMSApi.cs" />
+    <Compile Include="Vendors\YunPian\YunPianSMSContext.cs" />
+    <Compile Include="Vendors\YunPian\YunPianSMSService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Vendors\YunPian\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
