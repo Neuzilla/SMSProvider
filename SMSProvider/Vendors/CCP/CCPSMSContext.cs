@@ -13,15 +13,21 @@ namespace Neuzilla.SMSProvider.Vendors
         {
             get;set;
         }
-
+        /// <summary>
+        /// SMS Host/Url
+        /// </summary>
         public string Host { get; set; }
-
+        /// <summary>
+        /// Account Id
+        /// </summary>
         public string AccountId { get; set; }
         /// <summary>
-        /// 密码的MD5码
+        /// SMS Host Port
         /// </summary>
         public string Port { get; set; }
-
+        /// <summary>
+        /// App Id
+        /// </summary>
         public string AppId { get; set; }
     }
 }
