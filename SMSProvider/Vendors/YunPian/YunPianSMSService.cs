@@ -21,7 +21,7 @@ namespace Neuzilla.SMSProvider.Vendors.YunPian
 
         public void Initialize()
         {
-            throw new NotImplementedException();
+            
         }
 
         public Task SendSMS(string mobile, string content)

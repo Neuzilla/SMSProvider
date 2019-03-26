@@ -81,7 +81,9 @@
     <Compile Include="Vendors\HuaXinTech\HuaXinTechSendSMSApi.cs" />
     <Compile Include="Vendors\HuaXinTech\IHuaXinTechSendSMSApi.cs" />
     <Compile Include="Core\ISMSService.cs" />
+    <Compile Include="Vendors\YunPian\YunPianSendSMSApiResponse.cs" />
     <Compile Include="Vendors\YunPian\IYunPianSendSMSApi.cs" />
+    <Compile Include="Vendors\YunPian\YuanPianSendSMSApi.cs" />
     <Compile Include="Vendors\YunPian\YunPianSMSContext.cs" />
     <Compile Include="Vendors\YunPian\YunPianSMSService.cs" />
   </ItemGroup>
