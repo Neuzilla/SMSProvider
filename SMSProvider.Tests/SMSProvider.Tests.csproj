@@ -59,6 +59,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CCPSMSSendApiTests.cs" />
+    <Compile Include="YunPianSMSSendApiTests.cs" />
     <Compile Include="HuaXinTechSMSSendApiTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
