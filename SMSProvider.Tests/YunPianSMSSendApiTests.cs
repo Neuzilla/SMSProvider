@@ -42,7 +42,7 @@ namespace SMSProvider.Tests
         [TestMethod]
         public async Task TestYunPianSMSSendApi()
         {
-            await api.SendSMS("15618979112", "【上海尼梭】您的验证码是1234");
+            await api.SendSMS("156XXXXXXX2", "【上海尼梭】您的验证码是1234");
 
 //            Assert.AreEqual(1, resp.SuccessSMSCount);
 //            Assert.IsTrue(resp.TaskId > 0);
@@ -50,7 +50,7 @@ namespace SMSProvider.Tests
         [TestMethod]
         public async Task TestYunPianSMSSendApi_MutipleMobiles()
         {
-            var mobiles = new string[] { "15618979112", "19945717753" };
+            var mobiles = new string[] { "156XXXXXXX2", "156XXXXXXX2", "156XXXXXXX2", "156XXXXXXX2", "156XXXXXXX2", };
             await api.SendSMS(mobiles, "【上海尼梭】您的验证码是3333");
         }
         
