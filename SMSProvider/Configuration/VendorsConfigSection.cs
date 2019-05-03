@@ -22,11 +22,12 @@ namespace Neuzilla.SMSProvider.Configuration
             }
         }
 
-        [ConfigurationProperty("vendors", IsDefaultCollection = true)]
+        [ConfigurationProperty("", IsDefaultCollection = true)]
+        [ConfigurationCollection(typeof(VendorElementCollection), AddItemName = "vendor")]
         public VendorElementCollection Vendors
         {
             get {
-                return (VendorElementCollection)base["vendors"];
+                return (VendorElementCollection)this[""];
             }
         }
     }

@@ -7,37 +7,27 @@ using System.Threading.Tasks;
 
 namespace Neuzilla.SMSProvider.Configuration
 {
-    public class VendorElementCollection:ConfigurationElementCollection 
+    public class VendorElementCollection:ConfigurationElementCollection, IEnumerable<VendorElement>
     {
+        private readonly List<VendorElement> elements;
+        public VendorElementCollection()
+        {
+            this.elements = new List<VendorElement>();
+        }
         protected override ConfigurationElement CreateNewElement()
         {
-            return new VendorElement();
+            var element = new VendorElement();
+            this.elements.Add(element);
+            return element;
         }
         protected override object GetElementKey(ConfigurationElement element)
         {
             return ((VendorElement)element).Name;
         }
-        protected override string ElementName
+
+        public new IEnumerator<VendorElement> GetEnumerator()
         {
-            get
-            {
-                return "vendor";
-            }
-        }
-        public VendorElement this[int index]
-        {
-            get
-            {
-                return (VendorElement)BaseGet(index);
-            }
-            set
-            {
-                if (BaseGet(index) != null)
-                {
-                    BaseRemoveAt(index);
-                }
-                BaseAdd(index, value);
-            }
+            return this.elements.GetEnumerator();
         }
     }
 }

@@ -16,14 +16,14 @@ namespace Neuzilla.SMSProvider.Configuration
             set { base["name"] = value; }
         }
 
-        [ConfigurationProperty("username", IsRequired = true)]
+        [ConfigurationProperty("username")]
         public string Username
         {
             get { return (string)base["username"]; }
             set { base["username"] = value; }
         }
 
-        [ConfigurationProperty("accessToken", IsRequired = true)]
+        [ConfigurationProperty("accessToken")]
         public string AccessToken
         {
             get { return (string)base["accessToken"]; }
