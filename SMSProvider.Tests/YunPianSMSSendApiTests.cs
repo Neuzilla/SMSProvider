@@ -23,35 +23,24 @@ namespace SMSProvider.Tests
         {
             context = new YunPianSMSContext();
 
-            //var config = VendorConfig.Instances("YunPian");
-            context.Host = ConfigurationManager.AppSettings["YunPian_Host"];
-            context.AccessToken = ConfigurationManager.AppSettings["YunPian_ApiKey"];
-
-
-            //context.Host = ConfigurationManager.AppSettings["HuaXinTech_Host"];
-            //context.AccountId = ConfigurationManager.AppSettings["HuaXinTech_Username"];
-            //context.PasswordMD5 = ConfigurationManager.AppSettings["HuaXinTech_PasswordMD5"];
-            //context.Signature = ConfigurationManager.AppSettings["HuaXinTech_Signature"]; ;
-            //context.Userid = "";
+            var config = VendorConfig.GetConfig("YunPian");
+            context.Host = config.Host;
+            context.AccessToken = config.AccessToken;
 
             api = new YunPianSMSService(context);
-            //string accesstoken = context.AccessToken;
         }
 
        
         [TestMethod]
         public async Task TestYunPianSMSSendApi()
         {
-            await api.SendSMS("156XXXXXXX2", "【上海尼梭】您的验证码是1234");
-
-//            Assert.AreEqual(1, resp.SuccessSMSCount);
-//            Assert.IsTrue(resp.TaskId > 0);
+            await api.SendSMS("156XXXXXXX2", "【上海尼梭】您的验证码是162343");
         }
         [TestMethod]
         public async Task TestYunPianSMSSendApi_MutipleMobiles()
         {
-            var mobiles = new string[] { "156XXXXXXX2", "156XXXXXXX2", "156XXXXXXX2", "156XXXXXXX2", "156XXXXXXX2", };
-            await api.SendSMS(mobiles, "【上海尼梭】您的验证码是3333");
+            var mobiles = new string[] { "156XXXXXXX2", "156XXXXXXX2", "156XXXXXXX2", "156XXXXXXX2", "156XXXXXXX2" };  //测试前记得更换批量手机号
+            await api.SendSMS(mobiles, "【上海尼梭】您的验证码是334422");
         }
         
       

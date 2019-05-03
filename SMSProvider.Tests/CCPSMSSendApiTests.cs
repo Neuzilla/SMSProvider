@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Neuzilla.SMSProvider.Configuration;
 using Neuzilla.SMSProvider.Core;
 using Neuzilla.SMSProvider.Vendors;
 using System;
@@ -17,39 +18,48 @@ namespace SMSProvider.Tests
         [TestInitialize]
         public void Setup()
         {
-            smsService = new CCPSMSService(new CCPSMSContext()
-            {
-                Host = ConfigurationManager.AppSettings["CCP_Host"],
-                Port = ConfigurationManager.AppSettings["CCP_Port"],
-                AccountId = ConfigurationManager.AppSettings["CCP_AccountSid"],
-                AccessToken = ConfigurationManager.AppSettings["CCP_AccountToken"],
-                AppId = ConfigurationManager.AppSettings["CCP_AppId"]
-            });
+            var config = VendorConfig.GetConfig("CCP");
+
+            var context = new CCPSMSContext() {
+                Host = config.Host,
+                Port = config.Port,
+                AccountId = config.Username,
+                AccessToken = config.AccessToken,
+                AppId = config.AppId
+                };
+
+            smsService = new CCPSMSService(context);
         }
         [TestMethod]
         public async Task TestSendSMS_ScheduleStart()
         {
-            await smsService.SendSMSTemplate("13564542929", "121032","CN/CBL-12/116","","Asset OPEX");
+            await smsService.SendSMSTemplate("1356454XXXX", "121032","CN/CBL-12/116","","Asset OPEX");
         }
         [TestMethod]
         public async Task TestSendSMS_ScheduleReject()
         {
-            await smsService.SendSMSTemplate("13564542929", "121030", "CN/CBL-12/116", "", "Asset OPEX");
+            await smsService.SendSMSTemplate("1356454XXXX", "121030", "CN/CBL-12/116", "", "Asset OPEX");
         }
         [TestMethod]
         public async Task TestSendSMS_ScheduleReview()
         {
-            await smsService.SendSMSTemplate("13564542929", "121028", "CN/CBL-12/116", null, null);
+            await smsService.SendSMSTemplate("1356454XXXX", "121028", "CN/CBL-12/116", null, null);
         }
         [TestMethod]
         public async Task TestSendSMS_ScheduleSubmit()
         {
-            await smsService.SendSMSTemplate("13564542929", "121027", "CN/CBL-12/116", "", "Asset OPEX", "Cherry Sun");
+            await smsService.SendSMSTemplate("1356454XXXX", "121027", "CN/CBL-12/116", "", "Asset OPEX", "Cherry Sun");
         }
         [TestMethod]
         public async Task TestSendSMS_ScheduleComplete()
         {
-            await smsService.SendSMSTemplate("13564542929", "121025", "CN/CBL-12/116", "", "Asset OPEX");
+            await smsService.SendSMSTemplate("1356454XXXX", "121025", "CN/CBL-12/116", "", "Asset OPEX");
+        }
+
+        [TestMethod]
+        public async Task TestSendSMS_SendCaptcha()
+        {
+            await smsService.SendSMSTemplate("1356454XXXX", "423937", "123456", "3");
         }
     }
 }

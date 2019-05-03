@@ -22,19 +22,12 @@ namespace SMSProvider.Tests
         {
             context = new HuaXinTechSMSContext();
 
-            var config = VendorConfig.Instances("HuaXinTech");
+            var config = VendorConfig.GetConfig("HuaXinTech");
             context.Host = config.Host;
             context.AccountId = config.Username; 
             context.PasswordMD5 = config.Password;
             context.Signature = config.Signature;
             context.Userid = "";
-
-
-            //context.Host = ConfigurationManager.AppSettings["HuaXinTech_Host"];
-            //context.AccountId = ConfigurationManager.AppSettings["HuaXinTech_Username"];
-            //context.PasswordMD5 = ConfigurationManager.AppSettings["HuaXinTech_PasswordMD5"];
-            //context.Signature = ConfigurationManager.AppSettings["HuaXinTech_Signature"]; ;
-            //context.Userid = "";
 
             api = new HuaXinTechSMSService(context);
             //string accesstoken = context.AccessToken;
@@ -69,7 +62,7 @@ namespace SMSProvider.Tests
         [TestMethod]
         public async Task TestHuaxinTechSMSSendApi()
         {
-            await api.SendSMS("13564542929", "CN/CBL-16/112项目已暂停");
+            await api.SendSMS("1356454XXXX", "CN/CBL-16/112项目已暂停");
 
 //            Assert.AreEqual(1, resp.SuccessSMSCount);
 //            Assert.IsTrue(resp.TaskId > 0);
@@ -77,13 +70,13 @@ namespace SMSProvider.Tests
         [TestMethod]
         public async Task TestHuaxinTechSMSSendApi_MutipleMobiles()
         {
-            var mobiles = new string[] { "13564542929", "18616622603" };
+            var mobiles = new string[] { "1356454XXXX", "18616622603" };
             await api.SendSMS(mobiles, "CN/CBL-16/113项目已取消");
         }
         [TestMethod]
         public async Task TestHuaxinTechSMSSendApi_MutipleMobiles_SomeInvalid()
         {
-            var mobiles = new string[] { "13564542929", "18616622603","1234434" };
+            var mobiles = new string[] { "1356454XXXX", "18616622603","1234434" };
             await api.SendSMS(mobiles, "CN/CBL-16/112合同将于一个月内结束");
             //Assert.AreEqual(2, resp.SuccessSMSCount);
         }
@@ -133,7 +126,7 @@ namespace SMSProvider.Tests
             bool exceptionCaptured = false;
             try
             {
-                await api.SendSMS("13564542929", "");
+                await api.SendSMS("1356454XXXX", "");
             }
             catch (SMSApiException ex)
             {
@@ -167,7 +160,7 @@ namespace SMSProvider.Tests
             bool exceptionCaptured = false;
             try
             {
-                await api.SendSMS("13564542929", "CN/CBL-16/112项目已暂停");
+                await api.SendSMS("1356454XXXX", "CN/CBL-16/112项目已暂停");
             }
             catch (SMSApiException ex)
             {
@@ -183,7 +176,7 @@ namespace SMSProvider.Tests
             bool exceptionCaptured = false;
             try
             {
-                await api.SendSMS("13564542929", "CN/CBL-16/112项目已暂停江泽民坏事做尽");
+                await api.SendSMS("1356454XXXX", "CN/CBL-16/112项目已暂停江泽民坏事做尽");
             }
             catch (SMSApiException ex)
             {
@@ -199,7 +192,7 @@ namespace SMSProvider.Tests
         {
            string msg = string.Format("{0} {1} {2} - 此排期已经全部完成{3}",
             "CN/CBL-16/115", "Lvcheng Shanghai LEED CS Consulting", "Asset CAPEX", context.Signature);
-                   await api.SendSMS("13564542929", msg);
+                   await api.SendSMS("1356454XXXX", msg);
         }
     }
 }
