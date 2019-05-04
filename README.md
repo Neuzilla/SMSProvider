@@ -10,7 +10,7 @@ _SMS Provider library for adapting different SMS vendors_
 - _Send SMS via unified API_  
   通过统一的API发送短信
 
-- _Check SMS sent status and automatic resent if it fails_  
+- _Check SMS sent status and automatic resend if it fails_  
   检查发出短信的反馈状态，如果发送失败，自动重发
 
 - _Hourly/Daily SMS channel availibity checking_  
